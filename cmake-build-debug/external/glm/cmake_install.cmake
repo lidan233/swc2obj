@@ -1,8 +1,8 @@
-# Install script for directory: /Users/lidan/CLionProjects/SWC2Obj/external/glm
+# Install script for directory: C:/Users/lidan/Desktop/SWC2Obj/external/glm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/SWC2Obj")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,21 +34,21 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/usr/local/include/glm")
+   "C:/Program Files (x86)/SWC2Obj/include/glm")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/usr/local/include" TYPE DIRECTORY FILES "/Users/lidan/CLionProjects/SWC2Obj/external/glm/glm")
+file(INSTALL DESTINATION "C:/Program Files (x86)/SWC2Obj/include" TYPE DIRECTORY FILES "C:/Users/lidan/Desktop/SWC2Obj/external/glm/glm")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/glm/cmake_install.cmake")
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/test/cmake_install.cmake")
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/util/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/glm/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/test/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/util/cmake_install.cmake")
 
 endif()
 

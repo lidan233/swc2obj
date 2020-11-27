@@ -31,7 +31,10 @@ public:
         box->usingBox() ;
     }
 
-    bool isUsingNode() {return box!= nullptr ;}
+    bool isUsingNode() {
+        assert(box!= nullptr) ;
+        return box->data!= nullptr ;
+    }
     std::vector<float>* getData() { return box->getBoxData() ; }
     void setData(Sphere* ss) ;
     glm::vec3 getDimension() { return box->getDimension() ;}

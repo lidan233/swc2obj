@@ -1,8 +1,8 @@
-# Install script for directory: /Users/lidan/CLionProjects/SWC2Obj/external/glm/test/core
+# Install script for directory: C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/core
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/SWC2Obj")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

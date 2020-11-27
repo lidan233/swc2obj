@@ -25,10 +25,10 @@ BVHNode::BVHNode(int nid,BVHNode* childrenL, BVHNode* childrenR)
 {
     this->id = nid ;
     this->children[0] = childrenL ;
-    this->children[2] = childrenR ;
-
-    this->box->merge(*(childrenL->box)) ;
-    this->box->merge(*(childrenR->box)) ;
+    this->children[1] = childrenR ;
+    this->box = new VoxelBox() ;
+    this->box->merge(*(childrenL->box) ) ;
+    this->box->merge(*(childrenR->box) ) ;
 }
 
 
@@ -36,12 +36,22 @@ void BVHNode::setData(Sphere* ss)
 {
     VoxelBox* ss_box = ss->getBoundBox() ;
     VoxelBox* t = ss_box->interact(this->box) ;
-
+    int count = 0 ;
     if(t != nullptr)
     {
+        glm::i32vec3 boxdimension = this->getDimension() ;
+        glm::i32vec3 dimension = (t->pmax - t->pmin + glm::vec3(0.5,0.5,0.5)) ;
+        std::vector<float>* data = this->box->getBoxData() ;
 
-        glm::vec3 dimension = t->pmax - t->pmin ;
-        std::vector<float>* data = t->getBoxData() ;
+        glm::vec3 center = ss->position ;
+        glm::i32vec3 t1 = glm::round(center - box->pmin);
+        if(t1[0]>=0 && t1[1]>=0&&t1[2]>=0&& t1[0]<boxdimension[0] && t1[1]<boxdimension[1] && t1[2]<boxdimension[2])
+        {
+            (*data)[t1[0]*boxdimension[1]*boxdimension[2]+t1[1]*boxdimension[2]+t1[2]] = 1 ;
+            count++ ;
+        }
+
+
         for(int i = 0 ; i< dimension[0]; i++)
         {
             for(int j = 0; j < dimension[1]; j++)
@@ -50,19 +60,26 @@ void BVHNode::setData(Sphere* ss)
                 {
                     if(ss->isInBox(glm::vec3(i,j,z)+t->pmin))
                     {
-                        (*data)[i*dimension[1]*dimension[2]+j*dimension[2]+z] = 1 ;
+                        count++ ;
+                        glm::i32vec3 t1 = glm::vec3(i,j,z)+ t->pmin - box->pmin;
+                        (*data)[t1[0]*boxdimension[1]*boxdimension[2]+t1[1]*boxdimension[2]+t1[2]] = 1 ;
                     }
                 }
             }
         }
         delete t ;
     }
+//    std::cout<<"there is not zero "<<count<<" "<<ss->radius<<std::endl ;
 
 }
 
 BVHNode* splitBuild(std::vector<BVHNode*> nodes,int begin, int end)
 {
-    if(begin==end) { return nullptr; }
+    if(begin == end) {
+        std::cout<<"begin shit"<<begin<<std::endl ;
+        return nullptr;
+    }
+
     VoxelBox box ;
     for(int i = begin ;i<end;i++)
     {
@@ -73,8 +90,7 @@ BVHNode* splitBuild(std::vector<BVHNode*> nodes,int begin, int end)
     if(size==1)
     {
         return nodes[begin] ;
-
-    }else{
+    } else {
         std::vector<int> dimension = argsort(box.pmax-box.pmin) ;
         int dimension1 = dimension[2] ;
 
@@ -82,18 +98,24 @@ BVHNode* splitBuild(std::vector<BVHNode*> nodes,int begin, int end)
             return node1->box->pmin[dimension1] < node2->box->pmin[dimension1]  ;
         }) ;
 
-        BVHNode* t = nodes[int(nodes.size()/2)]  ;
+        BVHNode* t = nodes[int((begin+end)/2)]  ;
         double split = t->box->pmin[dimension1] ;
 
-        BVHNode** middle = std::partition(&nodes[begin],&nodes[end-1]+1,[split,dimension1](const BVHNode* node1){
-            return node1->box->pmin[dimension1] < split ;
+        auto middle = std::partition(&nodes[begin],&nodes[end-1]+1,[split,dimension1](const BVHNode* node){
+            return node->box->pmin[dimension1] < float(split) ;
         }) ;
 
+        int mid = begin ;
+        for(auto t = nodes[mid]; t->id!=(*middle)->id;t= nodes[++mid]) {};
+        std::cout<<"split mid is "<<mid <<"between "<<begin <<"and "<<end<<std::endl ;
+//        std::cout<<"split mid is "<<mid <<"between "<<begin <<"and "<<end<<std::endl ;
+        BVHNode* parent = new BVHNode(-1,
+                                         splitBuild(nodes,begin,mid) ,
+                                         splitBuild(nodes,mid,end)
+        ) ;
 
-        BVHNode* parent = new BVHNode(-1,splitBuild(nodes,begin,*middle-nodes[begin]) ,
-                                         splitBuild(nodes,*middle-nodes[begin],end)) ;
+
         return parent ;
-
     }
 
 }
@@ -111,11 +133,11 @@ BVH::BVH(glm::i32vec3 pmin, glm::i32vec3 pmax ,glm::vec3 voxelBox)
     glm::vec3 endPoint = glm::vec3(size[0]-1,size[1]-1,size[2]-1) ;
     std::vector<BVHNode*> nodes ;
 
-        for(int i = 0 ; i*(voxelBox[0]-2)<size[0] ;i+=voxelBox[0]-2 )
+        for(int i = 0 ; i*(voxelBox[0]-2)<size[0] ;i++ )
         {
-            for(int j = 0 ;j*(voxelBox[1]-2)<size[1];j+=voxelBox[1]-2)
+            for(int j = 0 ;j*(voxelBox[1]-2)<size[1];j++)
             {
-                for(int k = 0; k*(voxelBox[2]-2)<size[2];k+=voxelBox[2]-2)
+                for(int k = 0; k*(voxelBox[2]-2)<size[2];k++)
                 {
                     glm::vec3 s = startPoint + glm::vec3(i* (voxelBox[0]-2),
                                                          j* (voxelBox[1]-2),
@@ -124,10 +146,12 @@ BVH::BVH(glm::i32vec3 pmin, glm::i32vec3 pmax ,glm::vec3 voxelBox)
                     VoxelBox* t = new VoxelBox(s,s+voxelBox) ;
                     BVHNode* n = new BVHNode(nodes.size(),t) ;
                     nodes.push_back(n) ;
+                    std::cout<<"box is "<<glm::to_string(s)<<" "<<glm::to_string(s+voxelBox)<<std::endl ;
                 }
             }
     }
     this->root = splitBuild(nodes, 0, nodes.size()) ;
+        std::cout<<"build end"<<std::endl ;
 }
 
 void BVH::getInteract(std::vector<BVHNode*>& nodes, Sphere& ss )

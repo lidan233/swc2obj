@@ -4,8 +4,9 @@
 
 #ifndef SWC2OBJ_GEO_UTIL_H
 #define SWC2OBJ_GEO_UTIL_H
-
+#include <algorithm>
 #include "based.h"
+#include <glm/gtx/string_cast.hpp>
 
 inline float squared(float v) { return v * v; }
 inline bool doesBoxIntersectSphere(VoxelBox box,Sphere ss)
@@ -14,8 +15,8 @@ inline bool doesBoxIntersectSphere(VoxelBox box,Sphere ss)
     glm::vec3 C2 = box.pmax ;
     glm::vec3 S = ss.position ;
     float R = ss.radius ;
-    float dist_squared = R * R;
-    // 球心到三个面的距离的平方和 必须大于半径的平方
+    float dist_squared = R * R ;
+
     if (S.x < C1.x) dist_squared -= squared(S.x - C1.x);
     else if (S.x > C2.x) dist_squared -= squared(S.x - C2.x);
     if (S.y < C1.y) dist_squared -= squared(S.y - C1.y);

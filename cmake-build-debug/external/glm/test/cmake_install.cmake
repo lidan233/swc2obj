@@ -1,8 +1,8 @@
-# Install script for directory: /Users/lidan/CLionProjects/SWC2Obj/external/glm/test
+# Install script for directory: C:/Users/lidan/Desktop/SWC2Obj/external/glm/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/SWC2Obj")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,10 +34,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/test/bug/cmake_install.cmake")
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/test/core/cmake_install.cmake")
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/test/gtc/cmake_install.cmake")
-  include("/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/external/glm/test/gtx/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/test/bug/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/test/core/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/test/gtc/cmake_install.cmake")
+  include("C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/glm/test/gtx/cmake_install.cmake")
 
 endif()
 

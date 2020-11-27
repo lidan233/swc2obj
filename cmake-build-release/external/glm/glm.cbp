@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="glm"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="msvc8"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\config\;CMake Files\external\;CMake Files\external\glm\;CMake Files\external\glm\cmake\;CMake Files\external\glm\glm\;CMake Files\external\glm\test\;CMake Files\external\glm\test\bug\;CMake Files\external\glm\test\core\;CMake Files\external\glm\test\gtc\;CMake Files\external\glm\test\gtx\;CMake Files\external\glm\util\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/external/glm"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\external\glm\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\external\glm\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\external\glm\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\external\glm\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/cmake/LidanBase.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/cmake/LidanBuild.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/config/config.h.in">
+			<Option virtualFolder="CMake Files\config\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/cmake/GNUInstallDirs.cmake">
+			<Option virtualFolder="CMake Files\external\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\test\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/bug/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\test\bug\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\test\core\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/gtc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\test\gtc\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/test/gtx/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\test\gtx\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\glm\util\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

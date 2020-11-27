@@ -123,7 +123,7 @@ void average(std::vector<float>& mask_vector, glm::vec3 dimension)
 {
 	int offset[8][3] = { {0, 0, 0}, {0, 0, 1}, {0 ,1, 0}, {0, 1, 1},
 							{1, 0, 0}, {1, 0, 1}, {1 ,1, 0}, {1, 1, 1}};
-
+    std::cout<<dimension[0]<<" "<<dimension[1]<<" "<<dimension[2]<<std::endl ;
 	for(auto i = 0 ; i< dimension[0]-1;i++)
     {
 	    for(auto j = 0 ; j< dimension[1]-1;j++)
@@ -133,8 +133,10 @@ void average(std::vector<float>& mask_vector, glm::vec3 dimension)
                 auto sum = 0.0;
                 for (auto& p : offset)
                 {
-                    sum += mask_vector[(p[0]+i)*dimension[1]*dimension[2]
-                                       + (p[1] + j)*dimension[2] + (p[2]+z)] ;
+                    int id = (p[0]+i)*dimension[1]*dimension[2]
+                             + (p[1] + j)*dimension[2] + (p[2]+z) ;
+//                    std::cout<<"access "<<id<<std::endl ;
+                    sum += mask_vector[id] ;
                 }
                 mask_vector[i*dimension[1]*dimension[2]+j*dimension[2]+z] = sum/8 ;
             }
@@ -149,8 +151,8 @@ void averageAll(BVHNode* root)
 {
     if(root->id>=0 && root->isUsingNode()) average(*root->getData(),root->getDimension()) ;
     else{
-        averageAll(root->children[0]) ;
-        averageAll(root->children[1]) ;
+        if(root->children[0]) averageAll(root->children[0]) ;
+        if(root->children[1]) averageAll(root->children[1]) ;
     }
 }
 
@@ -196,15 +198,15 @@ void writeAll(BVHNode* root,std::string& path)
         std::string mhdname = name+"mhd" ;
         write(*root->getData(),rawname,mhdname,root->getDimension(),root->box->getStart()) ;
     }else{
-        writeAll(root->children[0],path) ;
-        writeAll(root->children[1],path) ;
+        if(root->children[0]!= nullptr) writeAll(root->children[0],path) ;
+        if(root->children[1]!= nullptr) writeAll(root->children[1],path) ;
     }
 }
 
 int swc2vol()
 {
-	std::string based_path = "/Users/lidan/Desktop/";
-	std::string swc_path = "N028.swc";
+	std::string based_path = "C:\\Users\\lidan\\Desktop\\brain\\14193_30neurons\\";
+	std::string swc_path = "N030.swc";
 	std::string swc_file = based_path + swc_path;
 
 	
@@ -231,14 +233,14 @@ int swc2vol()
 	std::cout << point_vector.size() << std::endl;
 
 	
-	//boundingBox(point_vector, x_space, y_space, z_space);
+
 	Vec3D<double> start_point{};
 	Vec3D<int> dimension{};
-	boundingBox(point_vector, x_space, y_space, z_space, start_point, dimension);
-	BVH* bvh = new BVH(start_point.to_i32vec3(),
+    boundingBox(point_vector, x_space, y_space, z_space, start_point, dimension);
+	BVH* bvh = new BVH( start_point.to_i32vec3(),
 	                    start_point.to_i32vec3()+dimension.to_i32vec3(),
-	                    glm::vec3(256.0,256.0,256.0)) ;
-
+	                    glm::vec3(64.0,64.0,64.0)) ;
+    Vec3D<double> start_point_need = start_point ;
 
 
 
@@ -247,9 +249,6 @@ int swc2vol()
 	auto paths = searchPath(point_vector);
 	std::cout << paths.size() << std::endl;
 
-	
-//	auto len = dimension.x * dimension.y * dimension.z;
-//	std::vector<float> mask_vector(len, 0);
 
 	for (auto& path : paths)
 	{
@@ -284,13 +283,16 @@ int swc2vol()
 			std::vector<Sphere*> spheres ;
 			double r = path.path[i].radius - path.path[i - 1].radius;
 
-            spheres.push_back(getSphere(start_point,path.path[i-1].radius)) ;
+			Vec3D<double> startP = (start_point+start_point_need) ;
+            spheres.push_back(getSphere(startP,path.path[i-1].radius)) ;
 			for(int t=1;t<vec_length/step;t++)
 			{
 				auto cur_point = direction*(t*step) + start_point;
-                spheres.push_back(getSphere(cur_point,r * (t * step) / vec_length + path.path[i - 1].radius)) ;
+                Vec3D<double> startP = (cur_point+start_point_need) ;
+                spheres.push_back(getSphere(startP,r * (t * step) / vec_length + path.path[i - 1].radius)) ;
 			}
-			spheres.push_back(getSphere(end_point,path.path[i].radius) ) ;
+			startP = end_point + start_point_need ;
+			spheres.push_back(getSphere(startP,path.path[i].radius) ) ;
 
 
             std::vector<BVHNode*> nodes ;
@@ -311,14 +313,12 @@ int swc2vol()
 			std::cout << "Process : " << j << " in " << paths.size() << ", " << i << " in " << paths[j].path.size() << std::endl;
 		}
 	}
-
-
     averageAll(bvh->getRoot());
     averageAll(bvh->getRoot());
 
     std::string path = std::string(CONDIF_DIR)+"Result/" ;
 	writeAll(bvh->getRoot(),path) ;
-	
+	return 0;
 }
 
 int main()

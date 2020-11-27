@@ -209,7 +209,7 @@ public:
 
     double isInBox(glm::vec3 node)
     {
-        if((node-position).length()<radius) {return true;} return false ;
+        if(glm::length(node-position)<radius*2) {return true;} return false ;
     }
 };
 

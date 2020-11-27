@@ -1,0 +1,6 @@
+# CMake generated Testfile for 
+# Source directory: C:/Users/lidan/Desktop/SWC2Obj/external/glm/util
+# Build directory: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/external/glm/util
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.

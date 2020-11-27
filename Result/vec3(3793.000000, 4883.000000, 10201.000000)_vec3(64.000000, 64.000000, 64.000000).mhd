@@ -1,0 +1,8 @@
+NDims = 3
+DimSize = 64 64 64
+ElementSize = 1 1 1
+ElementSpacing = 0.5 0.5 0.5
+ElementType = MET_FLOAT
+Position = 3793 4883 10201
+ElementByteOrderMSB = False
+ElementDataFile = C:/Users/lidan/Desktop/SWC2Obj/Result/vec3(3793.000000, 4883.000000, 10201.000000)_vec3(64.000000, 64.000000, 64.000000).raw

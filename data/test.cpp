@@ -92,4 +92,6 @@ int testSWCandOBJ(int argc, char* argv[])
 	}
 
 	std::cout << "obj file" + obj_file + " has been generated." << std::endl;
+
+	return 0 ;
 }

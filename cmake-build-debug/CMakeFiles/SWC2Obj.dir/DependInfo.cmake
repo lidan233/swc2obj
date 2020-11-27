@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/lidan/CLionProjects/SWC2Obj/data/ObjWriter.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/ObjWriter.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/data/SWCReader.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/SWCReader.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/data/test.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/test.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/main.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/main.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/swc2vol/swc2vol.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/util/BVH.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/util/BVH.cpp.o"
-  "/Users/lidan/CLionProjects/SWC2Obj/vol2obj/Volume.cpp" "/Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/vol2obj/Volume.cpp.o"
+  "C:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/ObjWriter.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/SWCReader.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/data/test.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/data/test.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/main.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/main.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/swc2vol/swc2vol.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/util/BVH.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/util/BVH.cpp.obj"
+  "C:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/SWC2Obj.dir/vol2obj/Volume.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

@@ -1,15 +1,35 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/lidan/CLionProjects/SWC2Obj
+"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" C:\Users\lidan\Desktop\SWC2Obj
 -- include LidanBase.cmake
 -- include LidanBuild.cmake
--- Add /Users/lidan/CLionProjects/SWC2Obj/data;
--- /Users/lidan/CLionProjects/SWC2Obj/data/ObjWriter.cpp/Users/lidan/CLionProjects/SWC2Obj/data/ObjWriter.h/Users/lidan/CLionProjects/SWC2Obj/data/SWCReader.cpp/Users/lidan/CLionProjects/SWC2Obj/data/SWCReader.h/Users/lidan/CLionProjects/SWC2Obj/data/based.h/Users/lidan/CLionProjects/SWC2Obj/data/cmdline.h/Users/lidan/CLionProjects/SWC2Obj/data/test.cpp
--- Add /Users/lidan/CLionProjects/SWC2Obj/swc2vol/;
--- /Users/lidan/CLionProjects/SWC2Obj/swc2vol//swc2vol.cpp
--- Add /Users/lidan/CLionProjects/SWC2Obj/vol2obj;
--- /Users/lidan/CLionProjects/SWC2Obj/vol2obj/Volume.cpp/Users/lidan/CLionProjects/SWC2Obj/vol2obj/Volume.h
--- Add /Users/lidan/CLionProjects/SWC2Obj/util;
--- /Users/lidan/CLionProjects/SWC2Obj/util/BVH.cpp/Users/lidan/CLionProjects/SWC2Obj/util/BVH.h/Users/lidan/CLionProjects/SWC2Obj/util/Geo_Util.h
+-- Add C:/Users/lidan/Desktop/SWC2Obj/data;
+-- C:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.cppC:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.hC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.cppC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.hC:/Users/lidan/Desktop/SWC2Obj/data/based.hC:/Users/lidan/Desktop/SWC2Obj/data/cmdline.hC:/Users/lidan/Desktop/SWC2Obj/data/test.cpp
+-- Add C:/Users/lidan/Desktop/SWC2Obj/swc2vol/;
+-- C:/Users/lidan/Desktop/SWC2Obj/swc2vol//swc2vol.cpp
+-- Add C:/Users/lidan/Desktop/SWC2Obj/vol2obj;
+-- C:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.cppC:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.h
+-- Add C:/Users/lidan/Desktop/SWC2Obj/util;
+-- C:/Users/lidan/Desktop/SWC2Obj/util/BVH.cppC:/Users/lidan/Desktop/SWC2Obj/util/BVH.hC:/Users/lidan/Desktop/SWC2Obj/util/Geo_Util.h
 -- GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench
+CMake Warning (dev) at external/glm/CMakeLists.txt:16 (if):
+  Policy CMP0054 is not set: Only interpret if() arguments as variables or
+  keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  Quoted variables like "MSVC" will no longer be dereferenced when the policy
+  is set to NEW.  Since the policy is not set the OLD behavior will be used.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at external/glm/CMakeLists.txt:59 (if):
+  Policy CMP0054 is not set: Only interpret if() arguments as variables or
+  keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
+  details.  Use the cmake_policy command to set the policy and suppress this
+  warning.
+
+  Quoted variables like "MSVC" will no longer be dereferenced when the policy
+  is set to NEW.  Since the policy is not set the OLD behavior will be used.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug
+-- Build files have been written to: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug
