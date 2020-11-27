@@ -1,0 +1,6 @@
+#cmakedefine USE_MYMATH
+
+#define CONDIF_DIR "@CONDIF_DIR@"
+#define APPENDDIR(NAME) CONDIF_DIR##NAME
+
+

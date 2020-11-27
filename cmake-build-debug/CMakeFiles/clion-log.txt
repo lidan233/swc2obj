@@ -1,0 +1,15 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/lidan/CLionProjects/SWC2Obj
+-- include LidanBase.cmake
+-- include LidanBuild.cmake
+-- Add /Users/lidan/CLionProjects/SWC2Obj/data;
+-- /Users/lidan/CLionProjects/SWC2Obj/data/ObjWriter.cpp/Users/lidan/CLionProjects/SWC2Obj/data/ObjWriter.h/Users/lidan/CLionProjects/SWC2Obj/data/SWCReader.cpp/Users/lidan/CLionProjects/SWC2Obj/data/SWCReader.h/Users/lidan/CLionProjects/SWC2Obj/data/based.h/Users/lidan/CLionProjects/SWC2Obj/data/cmdline.h/Users/lidan/CLionProjects/SWC2Obj/data/test.cpp
+-- Add /Users/lidan/CLionProjects/SWC2Obj/swc2vol/;
+-- /Users/lidan/CLionProjects/SWC2Obj/swc2vol//swc2vol.cpp
+-- Add /Users/lidan/CLionProjects/SWC2Obj/vol2obj;
+-- /Users/lidan/CLionProjects/SWC2Obj/vol2obj/Volume.cpp/Users/lidan/CLionProjects/SWC2Obj/vol2obj/Volume.h
+-- Add /Users/lidan/CLionProjects/SWC2Obj/util;
+-- /Users/lidan/CLionProjects/SWC2Obj/util/BVH.cpp/Users/lidan/CLionProjects/SWC2Obj/util/BVH.h/Users/lidan/CLionProjects/SWC2Obj/util/Geo_Util.h
+-- GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/lidan/CLionProjects/SWC2Obj/cmake-build-debug
