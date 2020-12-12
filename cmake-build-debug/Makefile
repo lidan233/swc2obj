@@ -161,6 +161,71 @@ SWC2Obj\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SWC2Obj.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SWC2Obj.dir\build
 .PHONY : SWC2Obj\fast
 
+#=============================================================================
+# Target rules for targets named example
+
+# Build rule for target.
+example: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) example
+.PHONY : example
+
+# fast build rule for target.
+example\fast:
+	$(MAKE) $(MAKESILENT) -f external\cxxopts\src\CMakeFiles\example.dir\build.make /nologo -$(MAKEFLAGS) external\cxxopts\src\CMakeFiles\example.dir\build
+.PHONY : example\fast
+
+#=============================================================================
+# Target rules for targets named options_test
+
+# Build rule for target.
+options_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) options_test
+.PHONY : options_test
+
+# fast build rule for target.
+options_test\fast:
+	$(MAKE) $(MAKESILENT) -f external\cxxopts\test\CMakeFiles\options_test.dir\build.make /nologo -$(MAKEFLAGS) external\cxxopts\test\CMakeFiles\options_test.dir\build
+.PHONY : options_test\fast
+
+#=============================================================================
+# Target rules for targets named link_test
+
+# Build rule for target.
+link_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) link_test
+.PHONY : link_test
+
+# fast build rule for target.
+link_test\fast:
+	$(MAKE) $(MAKESILENT) -f external\cxxopts\test\CMakeFiles\link_test.dir\build.make /nologo -$(MAKEFLAGS) external\cxxopts\test\CMakeFiles\link_test.dir\build
+.PHONY : link_test\fast
+
+#=============================================================================
+# Target rules for targets named mergeOBJ
+
+# Build rule for target.
+mergeOBJ: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) mergeOBJ
+.PHONY : mergeOBJ
+
+# fast build rule for target.
+mergeOBJ\fast:
+	$(MAKE) $(MAKESILENT) -f ObjMerge\CMakeFiles\mergeOBJ.dir\build.make /nologo -$(MAKEFLAGS) ObjMerge\CMakeFiles\mergeOBJ.dir\build
+.PHONY : mergeOBJ\fast
+
+#=============================================================================
+# Target rules for targets named swc2Lobj
+
+# Build rule for target.
+swc2Lobj: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) swc2Lobj
+.PHONY : swc2Lobj
+
+# fast build rule for target.
+swc2Lobj\fast:
+	$(MAKE) $(MAKESILENT) -f swc2lobj\CMakeFiles\swc2Lobj.dir\build.make /nologo -$(MAKEFLAGS) swc2lobj\CMakeFiles\swc2Lobj.dir\build
+.PHONY : swc2Lobj\fast
+
 data\ObjWriter.obj: data\ObjWriter.cpp.obj
 
 .PHONY : data\ObjWriter.obj
@@ -269,33 +334,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SWC2Obj.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SWC2Obj.dir\main.cpp.s
 .PHONY : main.cpp.s
 
-swc2vol\swc2vol.obj: swc2vol\swc2vol.cpp.obj
-
-.PHONY : swc2vol\swc2vol.obj
-
-# target to build an object file
-swc2vol\swc2vol.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SWC2Obj.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj
-.PHONY : swc2vol\swc2vol.cpp.obj
-
-swc2vol\swc2vol.i: swc2vol\swc2vol.cpp.i
-
-.PHONY : swc2vol\swc2vol.i
-
-# target to preprocess a source file
-swc2vol\swc2vol.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SWC2Obj.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.i
-.PHONY : swc2vol\swc2vol.cpp.i
-
-swc2vol\swc2vol.s: swc2vol\swc2vol.cpp.s
-
-.PHONY : swc2vol\swc2vol.s
-
-# target to generate assembly for a file
-swc2vol\swc2vol.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SWC2Obj.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.s
-.PHONY : swc2vol\swc2vol.cpp.s
-
 util\BVH.obj: util\BVH.cpp.obj
 
 .PHONY : util\BVH.obj
@@ -362,6 +400,11 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... SWC2Obj
+	@echo ... example
+	@echo ... link_test
+	@echo ... mergeOBJ
+	@echo ... options_test
+	@echo ... swc2Lobj
 	@echo ... data/ObjWriter.obj
 	@echo ... data/ObjWriter.i
 	@echo ... data/ObjWriter.s
@@ -374,9 +417,6 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... swc2vol/swc2vol.obj
-	@echo ... swc2vol/swc2vol.i
-	@echo ... swc2vol/swc2vol.s
 	@echo ... util/BVH.obj
 	@echo ... util/BVH.i
 	@echo ... util/BVH.s

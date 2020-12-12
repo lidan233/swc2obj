@@ -1,0 +1,3 @@
+C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/cmake-build-debug/CMakeFiles/swc2Lobj.dir
+C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/cmake-build-debug/CMakeFiles/rebuild_cache.dir

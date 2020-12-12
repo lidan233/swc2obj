@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/data/SWCReader.cpp.obj"
   "C:/Users/lidan/Desktop/SWC2Obj/data/test.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/data/test.cpp.obj"
   "C:/Users/lidan/Desktop/SWC2Obj/main.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/main.cpp.obj"
-  "C:/Users/lidan/Desktop/SWC2Obj/swc2vol/swc2vol.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.obj"
   "C:/Users/lidan/Desktop/SWC2Obj/util/BVH.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/util/BVH.cpp.obj"
   "C:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.cpp" "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release/CMakeFiles/SWC2Obj.dir/vol2obj/Volume.cpp.obj"
   )
@@ -21,6 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../vol2obj"
   "../util"
   "../external/glm"
+  "../external/cxxopts/include"
   "config"
   )
 

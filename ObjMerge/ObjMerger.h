@@ -28,31 +28,57 @@ struct Point{
 
     bool operator==(const struct  Point& ano) const
     {
+//        if(poi[0] == ano.poi[0] && poi[1] == ano.poi[1] && poi[2] == ano.poi[2])
+//        {
+//            return true ;
+//        }
+        double value = 1 ;
+//        if(abs(poi[0]-ano.poi[0]) < value && abs(poi[1]-ano.poi[1]) < value && abs(poi[2]-ano.poi[2])<value)
         if(poi[0] == ano.poi[0] && poi[1] == ano.poi[1] && poi[2] == ano.poi[2])
         {
             return true ;
         }
         return false ;
+
     }
 
     bool operator<(const struct Point & right) const
     {
-       if(poi[0]<right.poi[0]) return true ;
-       else if (poi[0] > right.poi[0]) return false ;
-       else if(poi[0] == right.poi[0])
-       {
-           if(poi[1]<right.poi[1]) return true ;
-           else if (poi[1] > right.poi[1]) return false ;
-           else if(poi[1] == right.poi[1])
-           {
-               if(poi[2]<right.poi[2]) return true ;
-               else if (poi[2] > right.poi[2]) return false ;
-               else if(poi[2] == right.poi[2])
-               {
-                   return false ;
-               }
-           }
-       }
+        double value = 1 ;
+//       if(poi[0]-right.poi[0]<value) return true ;
+//       else if (poi[0] - right.poi[0]>value) return false ;
+//       else
+//       {
+//           if(poi[1]-right.poi[1]<value) return true ;
+//           else if (poi[1] - right.poi[1]>value) return false ;
+//           else
+//           {
+//               if(poi[2]-right.poi[2]<value) return true ;
+//               else if (poi[2] - right.poi[2]>value) return false ;
+//               else
+//               {
+//                   return false ;
+//               }
+//           }
+//       }
+
+        if(poi[0]<right.poi[0]) return true ;
+        else if (poi[0] > right.poi[0]) return false ;
+        else if(poi[0] == right.poi[0])
+        {
+            if(poi[1]<right.poi[1]) return true ;
+            else if (poi[1] > right.poi[1]) return false ;
+            else if(poi[1] == right.poi[1])
+            {
+                if(poi[2]<right.poi[2]) return true ;
+                else if (poi[2] > right.poi[2]) return false ;
+                else if(poi[2] == right.poi[2])
+                {
+                    return false ;
+                }
+            }
+        }
+
     }
 
 
@@ -101,9 +127,9 @@ public:
                     forrepeat[points[i].poi[0]].insert(points[i]) ;
                 else{
                     ids[points[i].id] = t->id ;
-                    std::cout<<"map "<< points[i].id <<" "<<t->id <<std::endl;
-                    std::cout<<points[i].id << glm::to_string(points[i].poi)<<std::endl ;
-                    std::cout<<t->id << glm::to_string(t->poi)<<std::endl ;
+//                    std::cout<<"map "<< points[i].id <<" "<<t->id <<std::endl;
+//                    std::cout<<points[i].id << glm::to_string(points[i].poi)<<std::endl ;
+//                    std::cout<<t->id << glm::to_string(t->poi)<<std::endl ;
                 }
             }
         }

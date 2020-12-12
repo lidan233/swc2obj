@@ -5,7 +5,7 @@
 		<Option title="SWC2Obj"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="msvc8"/>
-		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\config\;CMake Files\external\;CMake Files\external\glm\;CMake Files\external\glm\cmake\;CMake Files\external\glm\glm\;CMake Files\external\glm\test\;CMake Files\external\glm\test\bug\;CMake Files\external\glm\test\core\;CMake Files\external\glm\test\gtc\;CMake Files\external\glm\test\gtx\;CMake Files\external\glm\util\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\config\;CMake Files\external\;CMake Files\external\glm\;CMake Files\external\glm\cmake\;CMake Files\external\glm\glm\;CMake Files\external\glm\test\;CMake Files\external\glm\test\bug\;CMake Files\external\glm\test\core\;CMake Files\external\glm\test\gtc\;CMake Files\external\glm\test\gtx\;CMake Files\external\glm\util\;CMake Files\external\cxxopts\;CMake Files\external\cxxopts\src\;CMake Files\external\cxxopts\test\;CMake Files\ObjMerge\;CMake Files\swc2lobj\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug"/>
@@ -29,6 +29,7 @@
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/vol2obj"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/util"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/config"/>
 					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
 					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
@@ -58,6 +59,7 @@
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/vol2obj"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/util"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
 					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/config"/>
 					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
 					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
@@ -125,7 +127,264 @@
 					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="example">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/src/example.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 example"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="example/fast">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/src/example.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 example/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\src\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="options_test">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test/options_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 options_test"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="options_test/fast">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test/options_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 options_test/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="link_test">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test/link_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 link_test"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="link_test/fast">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test/link_test.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/external/cxxopts/test"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 link_test/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\external\cxxopts\test\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mergeOBJ">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/ObjMerge/mergeOBJ.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/ObjMerge"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/."/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/../external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/../external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 mergeOBJ"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mergeOBJ/fast">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/ObjMerge/mergeOBJ.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/ObjMerge"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/."/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/../external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/../external/cxxopts/include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 mergeOBJ/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\ObjMerge\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="swc2Lobj">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/swc2lobj/swc2Lobj.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/swc2lobj"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/../external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/../external/cxxopts/include"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/."/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 swc2Lobj"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="swc2Lobj/fast">
+				<Option output="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/swc2lobj/swc2Lobj.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/swc2lobj"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="msvc8"/>
+				<Compiler>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/../external/glm"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/../external/cxxopts/include"/>
+					<Add directory="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/."/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\ATLMFC\include"/>
+					<Add directory="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"/>
+					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 swc2Lobj/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\lidan\Desktop\SWC2Obj\cmake-build-debug\swc2lobj\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.cpp">
+			<Option target="mergeOBJ"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.h">
+			<Option target="mergeOBJ"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/objMerge.cpp">
+			<Option target="mergeOBJ"/>
+		</Unit>
 		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.cpp">
 			<Option target="SWC2Obj"/>
 		</Unit>
@@ -147,10 +406,46 @@
 		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/data/test.cpp">
 			<Option target="SWC2Obj"/>
 		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/src/example.cpp">
+			<Option target="example"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/test/link_a.cpp">
+			<Option target="link_test"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/test/link_b.cpp">
+			<Option target="link_test"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/test/main.cpp">
+			<Option target="options_test"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/test/options.cpp">
+			<Option target="options_test"/>
+		</Unit>
 		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/main.cpp">
 			<Option target="SWC2Obj"/>
 		</Unit>
-		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2vol/swc2vol.cpp">
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/ObjWriter.cpp">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/ObjWriter.h">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/SWCReader.cpp">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/SWCReader.h">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/based.h">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/cmdline.h">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/swc2lobj.cpp">
+			<Option target="swc2Lobj"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2vol/swc2vol.h">
 			<Option target="SWC2Obj"/>
 		</Unit>
 		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/util/BVH.cpp">
@@ -206,6 +501,24 @@
 		</Unit>
 		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/glm/util/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\external\glm\util\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\cxxopts\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/cxxopts-config.cmake.in">
+			<Option virtualFolder="CMake Files\external\cxxopts\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\cxxopts\src\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/external/cxxopts/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\cxxopts\test\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ObjMerge\"/>
+		</Unit>
+		<Unit filename="C:/Users/lidan/Desktop/SWC2Obj/swc2lobj/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\swc2lobj\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

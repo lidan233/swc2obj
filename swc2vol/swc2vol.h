@@ -1,16 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <glm/gtx/string_cast.hpp>
+#include <omp.h>
+
 
 #include "SWCReader.h"
 #include "cmdline.h"
 #include "BVH.h"
 #include "config.h"
 
-std::vector< Path > searchPath(std::vector<Vertex>& point_vector)
+std::vector< Path > searchPath(std::vector<Vertex>& point_vector,std::map<int, int>& vertex_hash)
 {
 	std::vector<int> leaf_nodes;
-	std::map<int, int> vertex_hash;
+//	std::map<int, int> vertex_hash;
 	for (auto i = 0; i < point_vector.size(); i++)
 	{
 		vertex_hash[point_vector[i].current_id] = i;
@@ -85,7 +87,7 @@ void boundingBox(std::vector<Vertex>& point_vector,
 		vertex.x /= 0.5;
 		vertex.y /= 0.5;
 		vertex.z /= 0.5;
-		vertex.radius /= 0.5 ;
+//		vertex.radius /= 0.5 ;
 
 		max_x = std::max(max_x, vertex.x+RADIUS*vertex.radius);
 		max_y = std::max(max_y, vertex.y+RADIUS*vertex.radius);
@@ -101,8 +103,8 @@ void boundingBox(std::vector<Vertex>& point_vector,
 	std::cout << "Dimension y : " << (max_y - min_y) << std::endl;
 	std::cout << "Dimension z : " << (max_z - min_z) << std::endl;
 
-	start_position = { min_x, min_y, min_z};
-	dimension = {int(max_x - min_x + 1), int(max_y - min_y + 1), int(max_z - min_z + 1) };
+	start_position = { min_x-1, min_y-1, min_z-1};
+	dimension = {int(max_x - min_x + 2), int(max_y - min_y + 2), int(max_z - min_z + 2) };
 }
 
 
@@ -116,58 +118,93 @@ void getSphereBoundingBox(Vec3D<double>& center_point, double radius, Vec3D<int>
 
 Sphere* getSphere(Vec3D<double>& center_point, double radius)
 {
+
     Sphere* ss = new Sphere(radius, center_point.to_vec3()) ;
     return ss ;
 }
 
-
-void average(std::vector<float>* mask_vector, glm::vec3 dimension)
+void average1(std::vector<float>* mask_vector, glm::dvec3 dimension)
 {
-	int offset[8][3] = { {0, 0, 0}, {0, 0, 1}, {0 ,1, 0}, {0, 1, 1},
-							{1, 0, 0}, {1, 0, 1}, {1 ,1, 0}, {1, 1, 1}};
-
-    std::cout<<dimension[0]<<" "<<dimension[1]<<" "<<dimension[2]<<std::endl ;
-	for(auto i = 0 ; i< dimension[2]-1;i++)
+    int offset[8][3] = { {0, 0, 0}, {0, 0, 1}, {0 ,1, 0}, {0, 1, 1},
+                         {1, 0, 0}, {1, 0, 1}, {1 ,1, 0}, {1, 1, 1}};
+//    std::cout<<glm::to_string(glm::dvec3(dimension))<<std::endl ;
+//    std::cout<<mask_vector->size()<<std::endl ;
+    for(auto k = 0;k< dimension.z-1; k++)
     {
-	    for(auto j = 0 ; j< dimension[1]-1;j++)
+        for(auto j=0;j<dimension.y-1; j++)
         {
-	        for(auto z = 0 ; z< dimension[0]-1;z++)
+            for(auto i=0; i<dimension.x-1; i++)
             {
                 auto sum = 0.0;
                 for (auto& p : offset)
                 {
-                    int id = (p[0]+i)*dimension[1]*dimension[0]
-                             + (p[1] + j)*dimension[0] + (p[2]+z) ;
-//                    std::cout<<"access "<<id<<std::endl ;
-                    sum += (*mask_vector)[id] ;
+                    sum += (*mask_vector)[(p[0] + k) * int(dimension.x) * int(dimension.y) + (p[1] + j) * int(dimension.x) + (p[2] + i)];
                 }
-                (*mask_vector)[i*dimension[1]*dimension[0]+j*dimension[0]+z] = sum/8 ;
+                (*mask_vector)[k * int(dimension.x) * int(dimension.y) + j * int(dimension.x) + i] = sum/8;
             }
         }
-        std::cout << "Process for averaging mask vector : " << i << " in " << dimension[2] - 1 << std::endl;
+        std::cout << "Process for averaging mask vector : " << k << " in " << dimension.z - 1 << std::endl;
     }
 }
 
 
 
+
 void averageAll(BVHNode* root)
 {
-    if(root->id>=0 && root->isUsingNode()) average(root->getData(),root->getDimension()) ;
+    if(root->id>=0 && root->isUsingNode()) average1(root->getData(),root->getDimension()) ;
     else{
         if(root->children[0]!= nullptr) averageAll(root->children[0]) ;
         if(root->children[1]!= nullptr) averageAll(root->children[1]) ;
     }
 }
 
+void change(BVHNode* node)
+{
+    int padding = 4 ;
+    glm::dvec3 dim = node->getDimension() ;
+    glm::dvec3 newdim = node->getDimension() - glm::dvec3(padding,padding,padding) ;
+    std::vector<float>* data = node->getData() ;
+    std::vector<float>* t = new std::vector<float>(int(newdim[0]*newdim[1]*newdim[2])) ;
 
-void writeMHD(std::string file_name, int NDims, glm::vec3 DimSize, glm::vec3 ElementSize, glm::vec3 ElementSpacing, glm::vec3 Position, bool ElementByteOrderMSB, std::string ElementDataFile)
+    for(int i = 0 ; i< newdim[2] ; i++)
+    {
+        for(int j = 0; j < newdim[1] ; j++)
+        {
+            for(int z = 0; z< newdim[0] ; z++)
+            {
+                (*t)[i*int(newdim[1])*int(newdim[0])+j*int(newdim[0])+z] =
+                        (*data)[(i+2)*int(dim[1])*int(dim[0])+(j+2)*int(dim[0])+(z+2) ];
+            }
+        }
+    }
+    std::cout<<"new dimension is"<<glm::to_string(newdim)<<std::endl ;
+
+    glm::dvec3 start = node->getStart() + glm::dvec3(padding/2,padding/2,padding/2) ;
+    VoxelBox* box = new VoxelBox(start, start+newdim) ;
+    box->data = t ;
+
+    node->setNewBox(box) ;
+}
+void changeAll(BVHNode* root)
+{
+    if(root->id>=0 && root->isUsingNode()) change(root) ;
+    else{
+        if(root->children[0]!= nullptr) changeAll(root->children[0]) ;
+        if(root->children[1]!= nullptr) changeAll(root->children[1]) ;
+    }
+}
+
+
+
+void writeMHD(std::string file_name, int NDims, glm::dvec3 DimSize, glm::dvec3 ElementSize, glm::dvec3 ElementSpacing, glm::dvec3 Position, bool ElementByteOrderMSB, std::string ElementDataFile)
 {
 	std::ofstream writer(file_name.c_str());
 	writer << "NDims = " << NDims << std::endl;
 	writer << "DimSize = " << DimSize.x << " " << DimSize.y << " " << DimSize.z << std::endl;
 	writer << "ElementSize = " << ElementSize.x << " " << ElementSize.y << " " << ElementSize.z << std::endl;
 	writer << "ElementSpacing = " << ElementSpacing.x << " " << ElementSpacing.y << " " << ElementSpacing.z << std::endl;
-	writer << "ElementType = " << "MET_FLOAT" << std::endl;
+	writer << "ElementType = " << "MET_DOUBLE" << std::endl;
 	writer << "Position = " << Position.x << " " << Position.y << " " << Position.z << std::endl;
 	if (ElementByteOrderMSB)
 		writer << "ElementByteOrderMSB = " << "True" << std::endl;
@@ -179,17 +216,23 @@ void writeMHD(std::string file_name, int NDims, glm::vec3 DimSize, glm::vec3 Ele
 
 
 
-void write(std::vector<float>& mask_vector,std::string rawname,std::string mhdname, glm::vec3 dimension,glm::vec3 start_point)
+void write(std::vector<float>& mask_vector,std::string rawname,std::string mhdname, glm::dvec3 dimension,glm::dvec3 start_point)
 {
     std::ofstream outFile(rawname, std::ios::out | std::ios::binary);
+    double t = 0.0 ;
     for (int i = 0; i < mask_vector.size(); i++) {
-
-        outFile.write(reinterpret_cast<char*>(&mask_vector[i]), sizeof(float));
+        t = mask_vector[i] ;
+        outFile.write(reinterpret_cast<char*>(&t), sizeof(double));
     }
+    std::cout<<"mask_vector"<<mask_vector.size()<<std::endl ;
     outFile.close();
+//    start_point[0] /= 0.32 ;
+//    start_point[1] /= 0.32 ;
+//    start_point[2] /= 2 ;
+
     std::cout << "File has been saved." << std::endl;
-//    writeMHD(mhdname, 3, dimension, { 1, 1, 1 }, { 0.5, 0.5, 0.5 }, start_point, false, rawname);
-    writeMHD(mhdname, 3, dimension, { 1, 1, 1 }, { 1.0,1.0,1.0 }, start_point, false, rawname);
+    writeMHD(mhdname, 3, dimension, { 1, 1, 1 }, { 0.5, 0.5, 0.5 }, start_point/double(2.0), false, rawname);
+//    writeMHD(mhdname, 3, dimension, { 1, 1, 1 }, { 1.0,1.0,1.0 }, start_point, false, rawname);
 }
 
 int filecount = 0 ;
@@ -210,16 +253,104 @@ void writeAll(BVHNode* root,std::string& path)
     }
 }
 
+
+
+
+int getDetph(std::vector< Path >& paths,std::vector<Vertex>& point_vector,std::map<int, int>& vertex_hash)
+{
+    int maxid = -1 ;
+    double max_degree = -1 ;
+
+    for (auto& path : paths) {
+        for (int i = 0; i < path.path.size(); i++){
+            if(path.path[i].degree>max_degree)
+            {
+                max_degree = path.path[i].degree ;
+                maxid = path.path[i].current_id ;
+            }
+        }
+    }
+
+
+    std::cout<<"get maxid is "<<maxid <<std::endl ;
+    int id = maxid ;
+    int countdis = 0 ;
+    while(id != -1)
+    {
+        point_vector[vertex_hash[id]].depth = countdis++ ;
+        double radius1 = point_vector[vertex_hash[id]].radius ;
+        int degree1 = point_vector[vertex_hash[id]].degree ;
+        id = point_vector[vertex_hash[id]].previous_id ;
+
+        if(id!=-1 && point_vector[vertex_hash[id]].radius>radius1)
+        {
+            std::cout<<id<<" a change to "<<radius1<<std::endl ;
+            point_vector[vertex_hash[id]].radius = radius1 ;
+        }
+    }
+
+    std::stack<int> point_vector_index ;
+    for(int i = 0 ; i < paths.size() ; i++)
+    {
+        point_vector_index.push(paths[i].path[0].current_id) ;
+    }
+
+    while(point_vector_index.size()!=0)
+    {
+        int id = point_vector_index.top() ;
+        int next_id = point_vector[vertex_hash[id]].previous_id ;
+        if(next_id == -1)
+        {
+            point_vector[vertex_hash[id]].depth = -2 ;
+            point_vector_index.pop() ;
+            continue;
+        }
+        int depth_next = point_vector[vertex_hash[next_id]].depth ;
+        double radius_next = point_vector[vertex_hash[next_id]].radius ;
+        int degree_next = point_vector[vertex_hash[next_id]].degree ;
+
+        if(radius_next==0.0)
+        {
+            std::cout<<point_vector[vertex_hash[next_id]].current_id ;
+        }
+
+        if(depth_next ==-2)
+        {
+            point_vector[vertex_hash[id]].depth = -2 ;
+            point_vector_index.pop() ;
+            continue;
+        }else if(depth_next >=0 )
+        {
+            point_vector[vertex_hash[id]].depth = depth_next+1 ;
+            if( point_vector[vertex_hash[id]].radius >= radius_next)
+            {
+                std::cout<<id<<" radius "<<point_vector[vertex_hash[id]].radius<<" change to "<<radius_next<<std::endl ;
+                point_vector[vertex_hash[id]].radius = radius_next ;
+            }
+
+            point_vector_index.pop() ;
+            continue ;
+        }else if(depth_next==-1)
+        {
+            point_vector_index.push(next_id) ;
+            continue;
+        }
+    }
+
+    for (int j = 0 ; j < paths.size(); j++) {
+        for (int i = 0; i < paths[j].path.size(); i++){
+            paths[j].path[i].radius = point_vector[vertex_hash[paths[j].path[i].current_id]].radius ;
+        }
+    }
+    std::cout<<" get depth end"<<std::endl ;
+    return maxid ;
+
+}
+
 int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
 {
     std::cout<<"we has "<<processor_N<<" processor"<<std::endl ;
-//	std::string based_path = "C:\\Users\\lidan\\Desktop\\brain\\14193_30neurons\\";
-//	std::string swc_path = "N001.swc";
-//	std::string swc_file = based_path + swc_path;
 
-	
-//	std::string raw_file_name = swc_path.substr(0, swc_path.size() - 3) + "raw";
-//	std::string mhd_file_name = swc_path.substr(0, swc_path.size() - 3) + "mhd";
 	int x_dimension = 28452;
 	int y_dimension = 21866;
 	int z_dimension = 4834;
@@ -236,6 +367,8 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
 	swc_reader.readSWC(swc_file);
 
 	auto point_vector = swc_reader.getPointVector();
+    std::map<int, int> vertex_hash ;
+
 
 	std::cout << "swc file " + swc_file + " has been loaded." << std::endl;
 	std::cout << point_vector.size() << std::endl;
@@ -247,14 +380,9 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
     boundingBox(point_vector, x_space, y_space, z_space, start_point, dimension);
 	BVH* bvh = new BVH( start_point.to_i32vec3(),
 	                    start_point.to_i32vec3()+dimension.to_i32vec3(),
-	                    glm::vec3(BLOCKSIZE,BLOCKSIZE,BLOCKSIZE)) ;
-    Vec3D<double> start_point_need = start_point ;
+	                    glm::dvec3(blocksize,blocksize,blocksize)) ;
 
-
-
-	Vec3D<double> space{x_space, y_space, z_space};
-
-	auto paths = searchPath(point_vector);
+	auto paths = searchPath(point_vector,vertex_hash);
 	std::cout << paths.size() << std::endl;
 
 
@@ -262,12 +390,68 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
 	{
 		for (int i = 0; i < path.path.size(); i++)
 		{
-//			path.path[i].x -= start_point.x;
-//			path.path[i].y -= start_point.y;
-//			path.path[i].z -= start_point.z;
-			if (path.path[i].radius < 0.1) path.path[i].radius = 0.2;
+
+		    if(path.path[i].radius<0.01)
+            {
+                float sum = 0 ;
+                int begin = i ;
+                int count = 0 ;
+
+                while(count<1)
+                {
+                    if(path.path[begin].radius>0.01 ){
+                        sum += path.path[begin].radius ;
+                        count++ ;
+                    }
+                    begin-- ;
+                    if(begin<0)
+                    {
+                        if(count<1)
+                        {
+                            sum += 0.1 ;
+                            count++ ;
+                        }
+                        break ;
+                    }
+                }
+                begin = i ;
+                while(count<2)
+                {
+                    if(path.path[begin].radius>0.01 ){
+                        sum += path.path[begin].radius ;
+                        count++ ;
+                    }
+
+                    begin-- ;
+                    if(begin>=path.path.size())
+                    {
+                        if(count<2)
+                        {
+                            sum += 0.1 ;
+                            count++ ;
+                        }
+                        break ;
+                    }
+                }
+
+                path.path[i].radius = sum / count ;
+                std::cout<<point_vector[vertex_hash[path.path[i].current_id]].radius<<" change to " <<path.path[i].radius<<std::endl ;
+                point_vector[vertex_hash[path.path[i].current_id]].radius = path.path[i].radius ;
+
+            }
 		}
 	}
+
+	for(int i = 0 ; i < point_vector.size(); i++)
+    {
+	    if(point_vector[i].radius<=0.0)
+        {
+	        std::cout<<"shit happened"<<std::endl ;
+        }
+    }
+
+    int maxid = getDetph(paths,point_vector,vertex_hash) ;
+
 
 
 //	start_point *= space;
@@ -275,8 +459,10 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
 	std::cout << "Start Points : " << start_point << std::endl;
 	std::cout << "Dimension: " << dimension << std::endl;
 	
-	double step = 0.01;
+	double step = 0.0001;
 	int window_offset = 0;
+
+	#pragma omp parallel for num_threads(24)
 	for(int j = 0;j< paths.size();j++)
 	{
 		const auto path = paths[j];
@@ -291,7 +477,6 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
             std::vector<Sphere*> spheres ;
 			double r = path.path[i].radius - path.path[i - 1].radius;
 
-//			Vec3D<double> startP = (start_point+start_point_need) ;
             Vec3D<double> startP = (start_point) ;
             spheres.push_back(getSphere(startP,path.path[i-1].radius)) ;
 			for(int t=1;t<vec_length/step;t++)
@@ -303,34 +488,39 @@ int swc2vol(std::string swc_file, int blocksize, std::string volume_dir)
 			startP = end_point  ;
 			spheres.push_back(getSphere(startP,path.path[i].radius) ) ;
 
-
             std::vector<BVHNode*> nodes ;
 			for(auto p=0;p<spheres.size();p++)
 			{
 			    nodes.clear() ;
-
 			    bvh->getInteract(nodes,*spheres[p]) ;
+
 			    for(auto begin = nodes.begin() ; begin != nodes.end() ; begin++)
                 {
 			        BVHNode* node = *begin ;
-			        node->usingNode() ;
-			        node->setData(spheres[p]) ;
+#pragma omp critical
+			        {
+                        node->usingNode() ;
+                        node->setData(spheres[p]) ;
+                    };
+
                 }
 
 			}
 
 			std::cout << "Process : " << j << " in " << paths.size() << ", " << i << " in " << paths[j].path.size() << std::endl;
-		}
+        }
 	}
     averageAll(bvh->getRoot());
     averageAll(bvh->getRoot());
-
+    changeAll(bvh->getRoot()) ;
+    bvh->check() ;
 //    std::string path = std::string(CONDIF_DIR)+"Result/" ;
 	writeAll(bvh->getRoot(),volume_dir) ;
+	delete bvh ;
 	return 0;
 }
 
-int main()
-{
-    swc2vol() ;
-}
+//int main()
+//{
+//    swc2vol() ;
+//}

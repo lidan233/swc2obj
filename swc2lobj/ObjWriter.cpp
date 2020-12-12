@@ -115,7 +115,8 @@ void ObjWriter::writeObj(const std::string & file_path, const double& x_space, c
 
 	write_file << "#vertex_num " << static_cast<unsigned int>(point_vector.size()) << std::endl;
 	std::cout << "#vertex_num " << static_cast<unsigned int>(point_vector.size()) << std::endl;
-
+    write_file.fill('0') ;
+    write_file.precision(10) ;
 
 	double max_x = -999999, min_x = 999999;
 	double max_y = -999999, min_y = 999999;
@@ -123,8 +124,10 @@ void ObjWriter::writeObj(const std::string & file_path, const double& x_space, c
 
 	for (auto & vertex : point_vector)
 	{
-		
-		write_file << "v " << (vertex.x) / x_space << " " << (vertex.y) / y_space << " " << (vertex.z) / z_space << std::endl;
+
+        write_file << "v " << std::fixed << std::setprecision(8)<< (vertex.x) / x_space
+                   << " " << std::fixed << std::setprecision(8) << (vertex.y) / y_space
+                   << " " << std::fixed << std::setprecision(8) << (vertex.z) / z_space << std::endl;
 		vertex.x /= x_space;
 		vertex.y /= y_space;
 		vertex.z /= z_space;

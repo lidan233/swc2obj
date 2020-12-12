@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 
 #include <limits.h>
+#include <glm/gtx/string_cast.hpp>
 
 class Vertex
 {
@@ -17,6 +18,7 @@ public:
 	int					index;
 	int					degree = 0;
 	bool				is_visited = false;
+	int                 depth = -1;
 };
 
 class Path
@@ -24,6 +26,7 @@ class Path
 public:
 	int					path_type;
 	std::vector<Vertex> path;
+	bool 				use = true;
 };
 
 template<typename T>
@@ -99,8 +102,8 @@ public:
 	    return glm::i32vec3(int(x),int(y),int(z)) ;
     }
 
-    glm::vec3 to_vec3(){
-	    return glm::vec3(x,y,z) ;
+    glm::dvec3 to_vec3(){
+	    return glm::dvec3(x,y,z) ;
 	}
 };
 
@@ -124,10 +127,10 @@ public:
 
 class VoxelBox{
 public:
-    glm::vec3 pmin = glm::vec3(std::numeric_limits<float>::max(),
+    glm::dvec3 pmin = glm::dvec3(std::numeric_limits<float>::max(),
                                std::numeric_limits<float>::max(),
                                std::numeric_limits<float>::max());
-    glm::vec3 pmax = glm::vec3(std::numeric_limits<float>::min(),
+    glm::dvec3 pmax = glm::dvec3(std::numeric_limits<float>::min(),
                                std::numeric_limits<float>::min(),
                                std::numeric_limits<float>::min());;
 
@@ -135,20 +138,36 @@ public:
     std::vector<float>* data = nullptr ;
 
     VoxelBox(){}
-    VoxelBox(glm::vec3 pmin_, glm::vec3 pmax_):pmin(pmin_),pmax(pmax_){};
+    VoxelBox(glm::dvec3 pmin_, glm::dvec3 pmax_):pmin(pmin_),pmax(pmax_){};
     VoxelBox(glm::i32vec3 pmin_, glm::i32vec3 pmax_):pmin(pmin_),pmax(pmax_){}
 
-    glm::vec3 getCenter() { return (pmin+pmax)*float(0.5) ; }
+    glm::dvec3 getCenter() { return (pmin+pmax)*double(0.5) ; }
+
+    void setPositionData(glm::dvec3 pos, float v) {
+    	glm::dvec3 r = pos - pmin ;
+    	glm::i32vec3 dim = pmax - pmin ;
+		(*data)[int(r[2]*dim[1]*dim[0]+r[1]*dim[0]+r[0])] = v ;
+    }
+
+    float getPositionData(glm::dvec3 pos)
+	{
+		glm::dvec3 r = pos - pmin ;
+		glm::i32vec3 dim = pmax - pmin ;
+    	return (*data)[int(r[2]*dim[1]*dim[0]+r[1]*dim[0]+r[0])] ;
+	}
     void merge(VoxelBox& box) {
+//        std::cout<<"merge "<<glm::to_string(pmin) <<" "<<glm::to_string(box.pmin)<<std::endl ;
         pmin = glm::min(pmin,box.pmin) ;
         pmax = glm::max(pmax,box.pmax) ;
+//        std::cout<<"merge "<<glm::to_string(pmin) <<" "<<glm::to_string(box.pmin)<<std::endl ;
+
     }
     bool isInteractWith(Vertex* first, Vertex* second) = delete;
 
     VoxelBox* interact(VoxelBox* ano)
     {
-        glm::vec3 mmin = glm::max(pmin, ano->pmin) ;
-        glm::vec3 mmax = glm::min(pmax, ano->pmax) ;
+        glm::dvec3 mmin = glm::max(pmin, ano->pmin) ;
+        glm::dvec3 mmax = glm::min(pmax, ano->pmax) ;
 
         if(mmin[0]<=mmax[0] && mmin[1]<=mmax[1] && mmin[2]<=mmax[2]) {
             return new VoxelBox(mmin,mmax) ;
@@ -159,18 +178,25 @@ public:
 
     void usingBox() {
         if(data == nullptr){
-            glm::vec3 size = pmax - pmin ;
-            int boxsize = int(size[0]*size[1]*size[2]) ;
+            glm::dvec3 size = pmax - pmin ;
+            int boxsize = int(size[0])*int(size[1])*int(size[2]) ;
             data = new std::vector<float>(boxsize,0.0) ;
+//            std::cout<<glm::to_string(pmax)<<" "<<glm::to_string(pmin)<<" "<<glm::to_string(size)<<" "<<boxsize<<" "<<1028*1028*1028<<std::endl ;
+//            std::cout<<"render data for "<<boxsize<<std::endl ;
         }
     }
     std::vector<float>* getBoxData(){
         return data ;
     }
 
-    glm::vec3 getStart() { return pmin; }
+    glm::dvec3 getStart() { return pmin; }
 
-    glm::vec3 getDimension() { return pmax-pmin;}
+    glm::dvec3 getDimension() { return pmax-pmin; }
+
+    void free(){
+        if(data!= nullptr) data->clear() ;
+    }
+
 };
 
 
@@ -179,8 +205,8 @@ class Cone // In cone space (important)
 public:
     double H ;
     double radius ;
-    glm::vec3 dir ;
-    glm::vec3 position ;
+    glm::dvec3 dir ;
+    glm::dvec3 position ;
 };
 
 class Plane
@@ -188,33 +214,33 @@ class Plane
 public:
     double u;
     double v;
-    glm::vec3 u_dir ;
-    glm::vec3 v_dir ;
-    glm::vec3 start;
+    glm::dvec3 u_dir ;
+    glm::dvec3 v_dir ;
+    glm::dvec3 start;
 };
 
 
 class Sphere{
 public:
     double radius ;
-    glm::vec3 position ;
+    glm::dvec3 position ;
     VoxelBox* box = nullptr ;
-    Sphere(double radius_, glm::vec3 position_):radius(radius_),position(position_) {
-        box = new VoxelBox(position - glm::vec3(radius,radius,radius),
-                           position + glm::vec3(radius,radius,radius)) ;
+    Sphere(double radius_, glm::dvec3 position_):radius(radius_),position(position_) {
+        box = new VoxelBox(position - glm::dvec3(radius,radius,radius),
+                           position + glm::dvec3(radius,radius,radius)) ;
 
     } ;
     void setBoundBox(VoxelBox* ano) { this->box = ano ;}
     VoxelBox* getBoundBox() { return this->box ;}
 
-    double isInBox(glm::vec3 node)
+    bool isInBox(glm::dvec3 node)
     {
-        if(glm::length(node-position)<radius*2) {return true;} return false ;
+        if(glm::length(node-position)<radius) {return true;} return false ;
     }
 };
 
 
-//inline bool intersect(Cone cone, glm::vec3 dir, glm::vec3 P)
+//inline bool intersect(Cone cone, glm::dvec3 dir, glm::dvec3 P)
 //{
 //    // Beware, indigest formulaes !
 //    double sqTA = pow(cone.radius/cone.H,2) ;
@@ -260,7 +286,7 @@ public:
 //    {
 //        // It is possible that either the part of the plan lie
 //        // entirely in the cone, or the inverse. We need to check.
-//        glm::vec3 center = P + (u + v) / 2;
+//        glm::dvec3 center = P + (u + v) / 2;
 //
 //        // Is the face inside the cone (<=> center is inside the cone) ?
 //        if(center.Z >= 0 && center.Z <= cone.H)

@@ -118,28 +118,9 @@ CMakeFiles\SWC2Obj.dir\data\test.cpp.s: cmake_force
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\SWC2Obj.dir\data\test.cpp.s /c C:\Users\lidan\Desktop\SWC2Obj\data\test.cpp
 <<
 
-CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj: CMakeFiles\SWC2Obj.dir\flags.make
-CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj: ..\swc2vol\swc2vol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.obj"
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj /FdCMakeFiles\SWC2Obj.dir\ /FS -c C:\Users\lidan\Desktop\SWC2Obj\swc2vol\swc2vol.cpp
-<<
-
-CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.i"
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe > CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\lidan\Desktop\SWC2Obj\swc2vol\swc2vol.cpp
-<<
-
-CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SWC2Obj.dir/swc2vol/swc2vol.cpp.s"
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.s /c C:\Users\lidan\Desktop\SWC2Obj\swc2vol\swc2vol.cpp
-<<
-
 CMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.obj: CMakeFiles\SWC2Obj.dir\flags.make
 CMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.obj: ..\vol2obj\Volume.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SWC2Obj.dir/vol2obj/Volume.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SWC2Obj.dir/vol2obj/Volume.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.obj /FdCMakeFiles\SWC2Obj.dir\ /FS -c C:\Users\lidan\Desktop\SWC2Obj\vol2obj\Volume.cpp
 <<
@@ -158,7 +139,7 @@ CMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.s: cmake_force
 
 CMakeFiles\SWC2Obj.dir\util\BVH.cpp.obj: CMakeFiles\SWC2Obj.dir\flags.make
 CMakeFiles\SWC2Obj.dir\util\BVH.cpp.obj: ..\util\BVH.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SWC2Obj.dir/util/BVH.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SWC2Obj.dir/util/BVH.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\SWC2Obj.dir\util\BVH.cpp.obj /FdCMakeFiles\SWC2Obj.dir\ /FS -c C:\Users\lidan\Desktop\SWC2Obj\util\BVH.cpp
 <<
@@ -177,7 +158,7 @@ CMakeFiles\SWC2Obj.dir\util\BVH.cpp.s: cmake_force
 
 CMakeFiles\SWC2Obj.dir\main.cpp.obj: CMakeFiles\SWC2Obj.dir\flags.make
 CMakeFiles\SWC2Obj.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SWC2Obj.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SWC2Obj.dir/main.cpp.obj"
 	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @<<
  /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\SWC2Obj.dir\main.cpp.obj /FdCMakeFiles\SWC2Obj.dir\ /FS -c C:\Users\lidan\Desktop\SWC2Obj\main.cpp
 <<
@@ -199,7 +180,6 @@ SWC2Obj_OBJECTS = \
 "CMakeFiles\SWC2Obj.dir\data\ObjWriter.cpp.obj" \
 "CMakeFiles\SWC2Obj.dir\data\SWCReader.cpp.obj" \
 "CMakeFiles\SWC2Obj.dir\data\test.cpp.obj" \
-"CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj" \
 "CMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.obj" \
 "CMakeFiles\SWC2Obj.dir\util\BVH.cpp.obj" \
 "CMakeFiles\SWC2Obj.dir\main.cpp.obj"
@@ -210,15 +190,14 @@ SWC2Obj_EXTERNAL_OBJECTS =
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\data\ObjWriter.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\data\SWCReader.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\data\test.cpp.obj
-SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\swc2vol\swc2vol.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\vol2obj\Volume.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\util\BVH.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\main.cpp.obj
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\build.make
 SWC2Obj.exe: CMakeFiles\SWC2Obj.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable SWC2Obj.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SWC2Obj.exe"
 	"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\SWC2Obj.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\SWC2Obj.dir\objects1.rsp @<<
- /out:SWC2Obj.exe /implib:SWC2Obj.lib /pdb:C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\SWC2Obj.pdb /version:0.0  /machine:x64 /INCREMENTAL:NO /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:SWC2Obj.exe /implib:SWC2Obj.lib /pdb:C:\Users\lidan\Desktop\SWC2Obj\cmake-build-release\SWC2Obj.pdb /version:0.0  /machine:x64  /INCREMENTAL:NO /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 
 # Rule to build all files generated by this target.

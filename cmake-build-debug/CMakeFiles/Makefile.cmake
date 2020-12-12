@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "NMake Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../ObjMerge/CMakeLists.txt"
   "CMakeFiles/3.17.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.17.3/CMakeRCCompiler.cmake"
@@ -15,6 +16,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../cmake/LidanBase.cmake"
   "../cmake/LidanBuild.cmake"
   "../config/config.h.in"
+  "../external/cxxopts/CMakeLists.txt"
+  "../external/cxxopts/cxxopts-config.cmake.in"
+  "../external/cxxopts/src/CMakeLists.txt"
+  "../external/cxxopts/test/CMakeLists.txt"
   "../external/glm/CMakeLists.txt"
   "../external/glm/cmake/GNUInstallDirs.cmake"
   "../external/glm/glm/CMakeLists.txt"
@@ -24,6 +29,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../external/glm/test/gtc/CMakeLists.txt"
   "../external/glm/test/gtx/CMakeLists.txt"
   "../external/glm/util/CMakeLists.txt"
+  "../swc2lobj/CMakeLists.txt"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeCInformation.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeCXXInformation.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake"
@@ -32,18 +39,25 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeGenericSystem.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakePackageConfigHelpers.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeParseImplicitLinkInfo.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeRCInformation.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Compiler/MSVC-C.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Compiler/MSVC-CXX.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/FindOpenMP.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/GNUInstallDirs.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC-C.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC-CXX.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows-MSVC.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Platform/Windows.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/Platform/WindowsPaths.cmake"
   "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/ProcessorCount.cmake"
+  "D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/WriteBasicConfigVersionFile.cmake"
   )
 
 # The corresponding makefile is:
@@ -64,9 +78,19 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "external/glm/test/gtc/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/glm/test/gtx/CMakeFiles/CMakeDirectoryInformation.cmake"
   "external/glm/util/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/cxxopts/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/cxxopts/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "external/cxxopts/test/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "ObjMerge/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "swc2lobj/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/SWC2Obj.dir/DependInfo.cmake"
+  "external/cxxopts/src/CMakeFiles/example.dir/DependInfo.cmake"
+  "external/cxxopts/test/CMakeFiles/options_test.dir/DependInfo.cmake"
+  "external/cxxopts/test/CMakeFiles/link_test.dir/DependInfo.cmake"
+  "ObjMerge/CMakeFiles/mergeOBJ.dir/DependInfo.cmake"
+  "swc2lobj/CMakeFiles/swc2Lobj.dir/DependInfo.cmake"
   )

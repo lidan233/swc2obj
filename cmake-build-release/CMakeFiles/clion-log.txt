@@ -1,24 +1,10 @@
 "D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - NMake Makefiles" C:\Users\lidan\Desktop\SWC2Obj
--- The C compiler identification is MSVC 19.27.29111.0
--- The CXX compiler identification is MSVC 19.27.29111.0
--- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe
--- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe - works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Detecting C compile features
--- Detecting C compile features - done
--- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe
--- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe - works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Detecting CXX compile features
--- Detecting CXX compile features - done
 -- include LidanBase.cmake
 -- include LidanBuild.cmake
 -- Add C:/Users/lidan/Desktop/SWC2Obj/data;
 -- C:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.cppC:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.hC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.cppC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.hC:/Users/lidan/Desktop/SWC2Obj/data/based.hC:/Users/lidan/Desktop/SWC2Obj/data/cmdline.hC:/Users/lidan/Desktop/SWC2Obj/data/test.cpp
 -- Add C:/Users/lidan/Desktop/SWC2Obj/swc2vol/;
--- C:/Users/lidan/Desktop/SWC2Obj/swc2vol//swc2vol.cpp
+-- C:/Users/lidan/Desktop/SWC2Obj/swc2vol//swc2vol.h
 -- Add C:/Users/lidan/Desktop/SWC2Obj/vol2obj;
 -- C:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.cppC:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.h
 -- Add C:/Users/lidan/Desktop/SWC2Obj/util;
@@ -44,6 +30,7 @@ CMake Warning (dev) at external/glm/CMakeLists.txt:59 (if):
   is set to NEW.  Since the policy is not set the OLD behavior will be used.
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
+-- cxxopts version 3.0.0
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release
