@@ -112,6 +112,7 @@ private:
 public:
     ObjMerger(std::string filename) ;
     void writeNew(std::string filename) ;
+    void writeNew1(std::string filename) ;
     void writeOld(std::string filename) ;
     void removerepeat()
     {

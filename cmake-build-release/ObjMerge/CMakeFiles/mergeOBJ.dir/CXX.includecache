@@ -6,6 +6,42 @@
 
 #IncludeRegexTransform: 
 
+../external/cxxopts/include/cxxopts.hpp
+cctype
+-
+cstring
+-
+exception
+-
+iostream
+-
+limits
+-
+list
+-
+map
+-
+memory
+-
+regex
+-
+sstream
+-
+string
+-
+unordered_map
+-
+unordered_set
+-
+utility
+-
+vector
+-
+optional
+-
+unicode/unistr.h
+-
+
 ../external/glm/glm/common.hpp
 detail/func_common.hpp
 ../external/glm/glm/detail/func_common.hpp
@@ -726,12 +762,6 @@ detail/type_vec4.hpp
 detail/func_vector_relational.hpp
 ../external/glm/glm/detail/func_vector_relational.hpp
 
-C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.cpp
-ObjMerger.h
-C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.h
-iomanip
--
-
 C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.h
 fstream
 -
@@ -751,4 +781,12 @@ glm/gtx/string_cast.hpp
 -
 sstream
 -
+
+C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/objMerge.cpp
+windows.h
+-
+cxxopts.hpp
+C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/cxxopts.hpp
+ObjMerger.h
+C:/Users/lidan/Desktop/SWC2Obj/ObjMerge/ObjMerger.h
 

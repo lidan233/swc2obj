@@ -98,8 +98,13 @@ int main(int argc, char** argv)
         outputobj = res["o"].as<std::string>() ;
     }
 
+    std::string outputobj1 = outputobj.substr(0,outputobj.size()-4)+"1.obj";
     ObjMerger merger(inputobj) ;
+    std::cout<<"write one obj"<<outputobj<<std::endl ;
     merger.writeNew(outputobj) ;
+    std::cout<<"write one obj1"<<outputobj1<<std::endl ;
+    merger.writeNew1(outputobj1) ;
+
     return 0 ;
 }
 
