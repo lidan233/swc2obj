@@ -1,8 +1,6 @@
 ---
-title: C++ template 学习
+title:SWC2OBJ(BVH,metaball,swc2vol,vol2obj,mergeOBJ,smoothOBJ)
 ---
-
-# SWC2OBJ(BVH,metaball,swc2vol,vol2obj,mergeOBJ,smoothOBJ)[https://github.com/lidan233/swc2obj]
 
 ## 任务
 > 将swc文件（一种人工标注的骨架文件）转化为光滑的obj,可以用于线和骨架膨胀之后转化为mesh，对应gis中的膨胀操作。这份代码提供了一份解决方案，也就是将一个骨架（人工标注的骨架）转化为光滑的mesh，并以obj的方式导出为mesh。
