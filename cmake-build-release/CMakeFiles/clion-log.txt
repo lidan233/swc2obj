@@ -1,36 +1,38 @@
-"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - NMake Makefiles" C:\Users\lidan\Desktop\SWC2Obj
--- include LidanBase.cmake
--- include LidanBuild.cmake
--- Add C:/Users/lidan/Desktop/SWC2Obj/data;
--- C:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.cppC:/Users/lidan/Desktop/SWC2Obj/data/ObjWriter.hC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.cppC:/Users/lidan/Desktop/SWC2Obj/data/SWCReader.hC:/Users/lidan/Desktop/SWC2Obj/data/based.hC:/Users/lidan/Desktop/SWC2Obj/data/cmdline.hC:/Users/lidan/Desktop/SWC2Obj/data/test.cpp
--- Add C:/Users/lidan/Desktop/SWC2Obj/swc2vol/;
--- C:/Users/lidan/Desktop/SWC2Obj/swc2vol//swc2vol.h
--- Add C:/Users/lidan/Desktop/SWC2Obj/vol2obj;
--- C:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.cppC:/Users/lidan/Desktop/SWC2Obj/vol2obj/Volume.h
--- Add C:/Users/lidan/Desktop/SWC2Obj/util;
--- C:/Users/lidan/Desktop/SWC2Obj/util/BVH.cppC:/Users/lidan/Desktop/SWC2Obj/util/BVH.hC:/Users/lidan/Desktop/SWC2Obj/util/Geo_Util.h
--- GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench
-CMake Warning (dev) at external/glm/CMakeLists.txt:16 (if):
-  Policy CMP0054 is not set: Only interpret if() arguments as variables or
-  keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
-  details.  Use the cmake_policy command to set the policy and suppress this
-  warning.
+"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - NMake Makefiles" C:\Users\lidan\Desktop\项目\brain\SWC2Obj
+-- The C compiler identification is MSVC 19.27.29111.0
+-- The CXX compiler identification is MSVC 19.27.29111.0
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe - broken
+CMake Error at D:/software/clion/CLion 2020.2.3/bin/cmake/win/share/cmake-3.17/Modules/CMakeTestCCompiler.cmake:60 (message):
+  The C compiler
 
-  Quoted variables like "MSVC" will no longer be dereferenced when the policy
-  is set to NEW.  Since the policy is not set the OLD behavior will be used.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+    "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe"
 
-CMake Warning (dev) at external/glm/CMakeLists.txt:59 (if):
-  Policy CMP0054 is not set: Only interpret if() arguments as variables or
-  keywords when unquoted.  Run "cmake --help-policy CMP0054" for policy
-  details.  Use the cmake_policy command to set the policy and suppress this
-  warning.
+  is not able to compile a simple test program.
 
-  Quoted variables like "MSVC" will no longer be dereferenced when the policy
-  is set to NEW.  Since the policy is not set the OLD behavior will be used.
-This warning is for project developers.  Use -Wno-dev to suppress it.
+  It fails with the following output:
 
--- cxxopts version 3.0.0
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-release
+    Change Dir: C:/Users/lidan/Desktop/椤圭洰/brain/SWC2Obj/cmake-build-release/CMakeFiles/CMakeTmp
+    
+    Run Build Command(s):nmake /nologo cmTC_8c2a1\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_8c2a1.dir\build.make /nologo -L                  CMakeFiles\cmTC_8c2a1.dir\build
+    Building C object CMakeFiles/cmTC_8c2a1.dir/testCCompiler.c.obj
+    	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @C:\Users\lidan\AppData\Local\Temp\nm2184.tmp
+    testCCompiler.c
+    c1: fatal error C1083: 鏃犳硶鎵撳紑婧愭枃浠�: 鈥淐:\Users\lidan\Desktop\????\brain\SWC2Obj\cmake-build-release\CMakeFiles\CMakeTmp\testCCompiler.c鈥�: No such file or directory
+    NMAKE : fatal error U1077: 鎻�:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe? 
+    Stop.
+    NMAKE : fatal error U1077: ?C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"? 
+    Stop.
+    
+    
+
+  
+
+  CMake will not be able to correctly generate this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/lidan/Desktop/椤圭洰/brain/SWC2Obj/cmake-build-release/CMakeFiles/CMakeOutput.log".
+See also "C:/Users/lidan/Desktop/椤圭洰/brain/SWC2Obj/cmake-build-release/CMakeFiles/CMakeError.log".

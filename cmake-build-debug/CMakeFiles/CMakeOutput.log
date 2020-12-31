@@ -21,7 +21,7 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
 
-The C compiler identification is MSVC, found in "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/CMakeCCompilerId.exe"
+The C compiler identification is MSVC, found in "C:/Users/lidan/Desktop/项目/brain/SWC2Obj/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdC/CMakeCCompilerId.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe 
@@ -45,53 +45,5 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
 
-The CXX compiler identification is MSVC, found in "C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.exe"
-
-Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):nmake /nologo cmTC_6d91a\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_6d91a.dir\build.make /nologo -L                  CMakeFiles\cmTC_6d91a.dir\build
-Building C object CMakeFiles/cmTC_6d91a.dir/testCCompiler.c.obj
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @C:\Users\lidan\AppData\Local\Temp\nm69A0.tmp
-testCCompiler.c
-Linking C executable cmTC_6d91a.exe
-	"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_6d91a.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_6d91a.dir\objects1.rsp @C:\Users\lidan\AppData\Local\Temp\nm6AEA.tmp
-
-
-
-Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):nmake /nologo cmTC_95ce3\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_95ce3.dir\build.make /nologo -L                  CMakeFiles\cmTC_95ce3.dir\build
-Building C object CMakeFiles/cmTC_95ce3.dir/CMakeCCompilerABI.c.obj
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @C:\Users\lidan\AppData\Local\Temp\nm6C9D.tmp
-CMakeCCompilerABI.c
-Linking C executable cmTC_95ce3.exe
-	"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_95ce3.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_95ce3.dir\objects1.rsp @C:\Users\lidan\AppData\Local\Temp\nm6CDD.tmp
-
-
-
-Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):nmake /nologo cmTC_a1404\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_a1404.dir\build.make /nologo -L                  CMakeFiles\cmTC_a1404.dir\build
-Building CXX object CMakeFiles/cmTC_a1404.dir/testCXXCompiler.cxx.obj
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @C:\Users\lidan\AppData\Local\Temp\nm6E43.tmp
-testCXXCompiler.cxx
-Linking CXX executable cmTC_a1404.exe
-	"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_a1404.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_a1404.dir\objects1.rsp @C:\Users\lidan\AppData\Local\Temp\nm6E92.tmp
-
-
-
-Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/lidan/Desktop/SWC2Obj/cmake-build-debug/CMakeFiles/CMakeTmp
-
-Run Build Command(s):nmake /nologo cmTC_d0801\fast && 	"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\nmake.exe"  -f CMakeFiles\cmTC_d0801.dir\build.make /nologo -L                  CMakeFiles\cmTC_d0801.dir\build
-Building CXX object CMakeFiles/cmTC_d0801.dir/CMakeCXXCompilerABI.cpp.obj
-	C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\cl.exe @C:\Users\lidan\AppData\Local\Temp\nm6FCB.tmp
-CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_d0801.exe
-	"D:\software\clion\CLion 2020.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\cmTC_d0801.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100183~1.0\x64\mt.exe --manifests  -- C:\PROGRA~2\MICROS~1\2019\COMMUN~1\VC\Tools\MSVC\1427~1.291\bin\Hostx64\x64\link.exe /nologo @CMakeFiles\cmTC_d0801.dir\objects1.rsp @C:\Users\lidan\AppData\Local\Temp\nm7019.tmp
-
-
+The CXX compiler identification is MSVC, found in "C:/Users/lidan/Desktop/项目/brain/SWC2Obj/cmake-build-debug/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.exe"
 

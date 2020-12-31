@@ -11,7 +11,7 @@
 inline float squared(float v) { return v * v; }
 inline bool doesBoxIntersectSphere(VoxelBox box,Sphere ss)
 {
-     glm::dvec3 C1 = box.pmin ;
+    glm::dvec3 C1 = box.pmin ;
     glm::dvec3 C2 = box.pmax ;
     glm::dvec3 S = ss.position ;
     float R = ss.radius ;
