@@ -2,7 +2,7 @@
 title: SWC2OBJ
 ---
 
-##Keywords
+## Keywords
 BVH, metaball, swc2vol, vol2obj, mergeOBJ, smoothOBJ
 
 ## Task
@@ -77,6 +77,4 @@ Start wireframe:
 ![picture 3](/images/0ee91e4526a40f2dbc0e15bde3fa0902b7c9247e062e72331f070a47172aa654.png)
 final effect
 ![picture 1](/images/9c59be8086e897aa53630d1d4b39ffb1cfd8fd6dd876faa3bf9ca63505cc0844.png)
-与此原文有关的更多信息要查看其他翻译信息，您必须输入相应原文
-发送反馈
-侧边栏
+
